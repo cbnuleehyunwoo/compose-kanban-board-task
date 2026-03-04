@@ -23,6 +23,7 @@ import org.jetbrains.compose.resources.painterResource
 import woowacourse.kanban.board.study.ButtonExample
 import woowacourse.kanban.board.study.IconButtonExample
 import woowacourse.kanban.board.study.ImageExample
+import woowacourse.kanban.board.study.SimpleBox
 import woowacourse.kanban.board.study.TextExample
 
 @Composable
@@ -41,6 +42,7 @@ fun App() {
             ImageExample()
             ButtonExample()
             IconButtonExample()
+            SimpleBox()
             Button(onClick = { showContent = !showContent }) {
                 Text("Click me!")
             }

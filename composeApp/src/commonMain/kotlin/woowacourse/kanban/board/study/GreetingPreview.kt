@@ -89,3 +89,34 @@ fun IconButtonExample() {
         }
     }
 }
+
+@Composable
+@Preview
+fun SimpleBox() {
+    Box(
+        modifier = Modifier.size(200.dp)
+            .background(Color.White),
+    ) {
+        Box(
+            modifier = Modifier
+                .size(50.dp)
+                .background(Color.Red)
+                .align(Alignment.TopStart),
+        )
+
+        Box(
+            modifier = Modifier
+                .size(50.dp)
+                .background(Color.Yellow)
+                .align(Alignment.Center),
+        )
+
+
+        Box(
+            modifier = Modifier
+                .size(50.dp)
+                .background(Color.Green)
+                .align(Alignment.BottomEnd),
+        )
+    }
+}
