@@ -33,3 +33,15 @@ fun TextExample() {
         fontWeight = FontWeight.Bold
     )
 }
+@Composable
+@Preview
+fun ImageExample() {
+    Image(
+        painter = painterResource(Res.drawable.my_image),
+        contentDescription = "설명 텍스트 (접근성을 위해 중요!)"
+    )
+    Image(
+        imageVector = Icons.Default.Favorite,
+        contentDescription = "좋아요"
+    )
+}
