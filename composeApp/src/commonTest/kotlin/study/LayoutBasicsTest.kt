@@ -38,11 +38,11 @@ class LayoutBasicsTest {
         setContent {
             Text(
                 // 바꿔 보세요!
-                text = "텍스트",
-                color = Color.Blue,
+                text = text,
+                color = Color.Companion.Blue,
                 fontSize = 26.sp,
-                fontWeight = FontWeight.Bold,
-                fontFamily = FontFamily.SansSerif
+                fontWeight = FontWeight.Companion.Bold,
+                fontFamily = FontFamily.Companion.SansSerif
             )
         }
 
@@ -56,11 +56,13 @@ class LayoutBasicsTest {
         // given
         setContent {
             Column(
-                modifier = Modifier.testTag("이름")
+                modifier = Modifier.Companion.testTag("이름")
             ) {
                 // 바꿔 보세요!
-                Text(text = "킴포즈", color = Color.Yellow)
-                Text(text = "끔포즈", color = Color.Green)
+
+                Text(text = "깜포즈", color = Color.Companion.Yellow)
+                Text(text = "킴포즈", color = Color.Companion.Yellow)
+                Text(text = "끔포즈", color = Color.Companion.Green)
             }
         }
 
@@ -79,10 +81,10 @@ class LayoutBasicsTest {
             var enabled by remember { mutableStateOf(true) }
             Button(
                 onClick = {
-                    // 바꿔 보세요!
+                    enabled = false
                 },
                 enabled = enabled,
-                modifier = Modifier.testTag("버튼")
+                modifier = Modifier.Companion.testTag("버튼")
             ) {
                 Text(text = "클릭해주세요")
             }
