@@ -3,6 +3,7 @@ package woowacourse.kanban.board.study
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -30,19 +31,20 @@ fun TextExample() {
         color = Color.Blue,
         fontSize = 22.sp,
         fontStyle = FontStyle.Italic,
-        fontWeight = FontWeight.Bold
+        fontWeight = FontWeight.Bold,
     )
 }
+
 @Composable
 @Preview
 fun ImageExample() {
     Image(
         painter = painterResource(Res.drawable.my_image),
-        contentDescription = "설명 텍스트 (접근성을 위해 중요!)"
+        contentDescription = "설명 텍스트 (접근성을 위해 중요!)",
     )
     Image(
         imageVector = Icons.Default.Favorite,
-        contentDescription = "좋아요"
+        contentDescription = "좋아요",
     )
 }
 
@@ -51,7 +53,7 @@ fun ButtonExample() {
     Button(
         onClick = {
             println("저장")
-        }
+        },
     ) {
         Text(text = "저장")
     }
@@ -59,12 +61,31 @@ fun ButtonExample() {
     Button(
         onClick = {
             println("저장")
-        }
+        },
     ) {
         Icon(
             imageVector = Icons.Default.Favorite,
             contentDescription = "좋아요",
-            tint = Color.Black
+            tint = Color.Black,
         )
+    }
+}
+
+@Composable
+@Preview
+fun IconButtonExample() {
+    Button(
+        onClick = {
+            println("좋아요")
+        },
+    ) {
+        Row {
+            Icon(
+                imageVector = Icons.Default.Favorite,
+                contentDescription = "좋아요",
+                tint = Color.Black,
+            )
+            Text("좋아요")
+        }
     }
 }

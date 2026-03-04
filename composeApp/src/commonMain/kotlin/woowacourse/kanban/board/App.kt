@@ -21,6 +21,7 @@ import kanbanboard.composeapp.generated.resources.Res
 import kanbanboard.composeapp.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.painterResource
 import woowacourse.kanban.board.study.ButtonExample
+import woowacourse.kanban.board.study.IconButtonExample
 import woowacourse.kanban.board.study.ImageExample
 import woowacourse.kanban.board.study.TextExample
 
@@ -39,6 +40,7 @@ fun App() {
             TextExample()
             ImageExample()
             ButtonExample()
+            IconButtonExample()
             Button(onClick = { showContent = !showContent }) {
                 Text("Click me!")
             }
