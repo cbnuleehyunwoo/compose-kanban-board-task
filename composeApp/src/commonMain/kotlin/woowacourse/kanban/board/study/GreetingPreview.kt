@@ -45,3 +45,26 @@ fun ImageExample() {
         contentDescription = "좋아요"
     )
 }
+
+@Composable
+fun ButtonExample() {
+    Button(
+        onClick = {
+            println("저장")
+        }
+    ) {
+        Text(text = "저장")
+    }
+
+    Button(
+        onClick = {
+            println("저장")
+        }
+    ) {
+        Icon(
+            imageVector = Icons.Default.Favorite,
+            contentDescription = "좋아요",
+            tint = Color.Black
+        )
+    }
+}
