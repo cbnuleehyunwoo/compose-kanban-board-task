@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import kanbanboard.composeapp.generated.resources.Res
 import kanbanboard.composeapp.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.painterResource
+import woowacourse.kanban.board.study.TextExample
 
 @Composable
 @Preview
@@ -33,11 +34,12 @@ fun App() {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+            TextExample()
             Button(onClick = { showContent = !showContent }) {
                 Text("Click me!")
             }
             AnimatedVisibility(showContent) {
-                Image(painterResource(Res.drawable.compose_multiplatform), null)
+                Image(painterResource(Res.drawable. compose_multiplatform), null)
             }
         }
     }
