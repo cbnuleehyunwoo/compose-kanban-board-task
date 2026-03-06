@@ -1,40 +1,62 @@
-This is a Kotlin Multiplatform project targeting Android, Desktop (JVM).
+# 🚀 0단계 - 컴포즈 기초
+## 과제 진행 요구 사항
+- 미션은 칸반 보드 태스크 저장소를 포크하고 클론하는 것으로 시작한다.
+- 온라인 코드 리뷰 요청 1단계 문서를 참고하여 실습 환경을 구축한다.
+1. 미션 시작 버튼을 클릭하여 미션을 시작한다.
+2. 저장소에 GitHub 사용자 이름으로 브랜치가 생성되었는지 확인한다.
+3. 저장소를 내 계정으로 포크한다.
+- 기능을 구현하기 전 README.md에 구현할 기능 목록을 정리해 추가한다.
+- Git의 커밋 단위는 앞 단계에서 README.md에 정리한 기능 목록 단위로 추가한다.
+  - AngularJS Git Commit Message Conventions을 참고해 커밋 메시지를 작성한다.
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+## 0단계 기능 요구 사항
+### 1. 실패하는 학습 테스트 통과시키기 
+- 아래 파일의 테스트가 모두 성공하도록 한다.
+```bash
+composeApp/src/commonTest/woowacourse/kanban/board/study/LayoutBasicsTest.kt
+```
+### 2. `3분 실습` 구현하기
+- `힌트`의 `3분 실습`에 기재된 내용을 구현한다.
+1. "Jetpack Compose Text 실습 표시하기"
+   - 크기는 `22sp`
+   - 색상은 `Blue`
+   - 굵기는 `Bold`
+2. "`PainterResource` 사용하여 이미지 리소스 표시, `Icons.Default.Favorite` 사용해서 `Image` 표시"
+3. `저장` 텍스트 버튼 만들기, ❤️ 이미지 버튼 만들기
+4. `❤️ 좋아요` 아이콘 버튼 만들기
+5. 50 * 50 정사각형 빨노초를 왼쪽 위/중앙/오른쪽 아래 배치
 
-### Build and Run Android Application
+### 1단계 기능 요구 사항
 
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
+1. 제목 설정 기능
+ - 볼드체로 표시
+ - 1줄을 넘어가는 길이일 때 "..."으로 뒷 내용 생략
+2. 내용 설정 기능
+ - 2줄 이상일 경우 "..."으로 뒷 내용 생략
+3. 태그 설정 기능
+- 태그 내용 5자까지로 제한
+- 태그 개수는 5개까지로 제한
+- 태그는 가로로 정렬
+4. 담당자 설정 기능
+- 프로필 이미지, 이름 가로로 정렬
+- 1줄을 넘어가는 길이일 때 "..."으로 뒷 내용 생략
+- 태그와 구분짓는 가로선 표시
+5. 카드 생성 기능
+- 모든 컴포넌트는 왼쪽으로 정렬
+- 제목, 내용, 태그, 담당자 순으로 세로 정렬
+- 컴포넌트는 인풋값이 없을 때 공간을 차지하지 않음
 
-### Build and Run Desktop (JVM) Application
+### 데스크톱 앱 실행 방법
+1. IDE (Android Studio / IntelliJ IDEA) 활용
+    1. IDE 우측 상단의 실행 구성(Run Configuration) 드롭다운 메뉴를 클릭한다.
+    2. desktopRun (또는 데스크톱 아이콘이 있는 항목)을 선택한다.
+    3. 재생(Run) 버튼(▶)을 누르거나 단축키(Ctrl + R 또는 Shift + F10)를 눌러 실행한다.
+2. Gradle 명령어 활용
+   - 터미널을 열고 프로젝트 루트 경로에서 아래의 Gradle 명령어를 직접 입력하여 실행할 수도 있다.
+```agsl
+./gradlew :composeApp:run
+```
+빌드가 완료되면 내 컴퓨터 화면 중앙에 독립된 데스크톱 창(Window)이 새로 뜨면서, commonMain에서 작성한 Compose UI가 아름답게 렌더링되는 것을 확인할 수 있다!
 
-To build and run the development version of the desktop app, use the run configuration from the run widget
-in your IDE’s toolbar or run it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:run
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:run
-  ```
-
----
-
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+### Preview
+- @Preview 어노테이션은 Android Studio에게 이 컴포저블의 미리보기가 필요하다고 알려준다. 함수를 수정하며 실시간으로 업데이트되는 미리보기를 확인할 수 있다.
