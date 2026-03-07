@@ -17,13 +17,10 @@ import androidx.compose.ui.unit.dp
 @Preview(showBackground = true)
 @Composable
 fun TaskCard(
-    @PreviewParameter(TaskCardPreviewParameterProvider::class)
-    taskInfo: TaskInfo,
+    @PreviewParameter(TaskCardPreviewParameterProvider::class) taskInfo: TaskInfo,
 ) {
     Column(
-        modifier = Modifier
-            .width(373.dp)
-            .border(2.dp, Color.LightGray, RoundedCornerShape(10.dp))
+        modifier = Modifier.width(373.dp).border(2.dp, Color.LightGray, RoundedCornerShape(10.dp))
             .padding(start = 22.5.dp, end = 22.5.dp, top = 22.5.dp, bottom = 22.5.dp),
         verticalArrangement = Arrangement.spacedBy(18.5.dp),
     ) {
@@ -34,7 +31,7 @@ fun TaskCard(
     }
 }
 
-private class TaskCardPreviewParameterProvider: PreviewParameterProvider<TaskInfo> {
+private class TaskCardPreviewParameterProvider : PreviewParameterProvider<TaskInfo> {
     override val values: Sequence<TaskInfo> = sequenceOf(
         TaskInfo(
             title = "LazyColumn 컴포넌트 구현",
@@ -59,7 +56,7 @@ private class TaskCardPreviewParameterProvider: PreviewParameterProvider<TaskInf
         TaskInfo(
             title = "너무너무 긴 제목은 한 줄까지만 노출되고 말줄임표로 처리합니다.",
             contents = "너무너무 긴 본문은 두 줄까지만 노출되고 말줄임표로 처리합니다. 너무너무 긴 본문은 두 줄까지만 노출되고 말줄임표로 처리합니다.",
-            tags = listOf(Tag("긴 태그"), Tag("최대로"), Tag("5자까지"), Tag("5개제한임"), Tag("줄임표가되...") ),
+            tags = listOf(Tag("긴 태그"), Tag("최대로"), Tag("5자까지"), Tag("5개제한임"), Tag("줄임표가되...")),
             contactName = "너무너무너무 긴 담당자도 한 줄 까지만 노출되곷 말줄임표로 처리합니다.",
         ),
 

@@ -17,10 +17,7 @@ import woowacourse.kanban.board.task.TaskInfo
 fun App() {
     MaterialTheme {
         Column(
-            modifier = Modifier
-                .background(Color.White)
-                .safeContentPadding()
-                .fillMaxSize(),
+            modifier = Modifier.background(Color.White).safeContentPadding().fillMaxSize(),
         ) {
             TaskInfo(
                 title = "LazyColumn 컴포넌트 구현",

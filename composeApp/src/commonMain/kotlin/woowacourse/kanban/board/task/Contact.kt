@@ -27,37 +27,32 @@ import androidx.compose.ui.unit.dp
 @Preview(showBackground = true)
 @Composable
 fun TaskContact(
-    @PreviewParameter(ContactPreviewParameterProvider::class)
-    contactName: String
+    @PreviewParameter(ContactPreviewParameterProvider::class) contactName: String,
 ) {
     Row(
-        modifier = Modifier
-            .width(336.dp)
-            .height(60.dp)
-            .drawBehind {
+        modifier = Modifier.width(336.dp).height(60.dp).drawBehind {
                 val strokeWidth = 1.dp.toPx()
-                val y = strokeWidth/2
+                val y = strokeWidth / 2
 
                 drawLine(
                     color = Color.LightGray,
                     start = Offset(0f, y),
                     end = Offset(size.width, y),
-                    strokeWidth = strokeWidth
+                    strokeWidth = strokeWidth,
                 )
             },
         horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         ContactProfile()
         ContactName(contactName)
     }
 }
+
 @Composable
 fun ContactProfile() {
     Icon(
-        modifier = Modifier
-            .background(Color.Gray, shape = CircleShape)
-            .border(
+        modifier = Modifier.background(Color.Gray, shape = CircleShape).border(
                 shape = CircleShape,
                 width = 2.dp,
                 color = Color.Gray,
@@ -67,19 +62,20 @@ fun ContactProfile() {
         tint = Color.White,
     )
 }
+
 @Composable
 fun ContactName(contactName: String) {
     Text(
         text = contactName,
         fontFamily = FontFamily.SansSerif,
         maxLines = 1,
-        overflow = TextOverflow.Ellipsis
+        overflow = TextOverflow.Ellipsis,
 
-    )
+        )
 }
 
-private class ContactPreviewParameterProvider: PreviewParameterProvider<String> {
+private class ContactPreviewParameterProvider : PreviewParameterProvider<String> {
     override val values: Sequence<String> = sequenceOf(
-        "다이노", "디노", "", "너무너무 긴이름은 말줄임표로 처리합니다. 너무너무 긴이름은 말줄임표로 처리합니다."
+        "다이노", "디노", "", "너무너무 긴이름은 말줄임표로 처리합니다. 너무너무 긴이름은 말줄임표로 처리합니다.",
     )
 }

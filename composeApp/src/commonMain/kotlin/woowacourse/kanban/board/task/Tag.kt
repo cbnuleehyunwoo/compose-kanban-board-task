@@ -25,8 +25,7 @@ data class Tag(
 @Preview(showBackground = true)
 @Composable
 fun TaskTags(
-    @PreviewParameter(TagPreviewParameterProvider::class)
-    tagNames: List<Tag>,
+    @PreviewParameter(TagPreviewParameterProvider::class) tagNames: List<Tag>,
 
     ) {
     val checkedTagNames = tagNames.map {
@@ -48,10 +47,8 @@ fun TaskTags(
 @Composable
 fun TaskTag(tagName: String) {
     Button(
-        modifier = Modifier
-            .height(32.dp),
-        onClick = {
-        },
+        modifier = Modifier.height(32.dp),
+        onClick = {},
         shape = RoundedCornerShape(21.dp),
         colors = ButtonDefaults.buttonColors(containerColor = Color.LightGray),
         contentPadding = PaddingValues(vertical = 5.dp, horizontal = 10.dp),

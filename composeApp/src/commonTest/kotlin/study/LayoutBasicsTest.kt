@@ -25,6 +25,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import org.junit.Test
+
 // 1. 모든 테스트가 성공하도록 만들어보자
 // 2. 힌트를 참고하여 Preview를 노출시킨다.
 // 3. Preview의 interactive 모드를 활용하여 버튼을 클릭해본다.
@@ -42,13 +43,12 @@ class LayoutBasicsTest {
                 color = Color.Companion.Blue,
                 fontSize = 26.sp,
                 fontWeight = FontWeight.Companion.Bold,
-                fontFamily = FontFamily.Companion.SansSerif
+                fontFamily = FontFamily.Companion.SansSerif,
             )
         }
 
         // then
-        onNodeWithText(text)
-            .assertExists()
+        onNodeWithText(text).assertExists()
     }
 
     @Test
@@ -56,7 +56,7 @@ class LayoutBasicsTest {
         // given
         setContent {
             Column(
-                modifier = Modifier.Companion.testTag("이름")
+                modifier = Modifier.Companion.testTag("이름"),
             ) {
                 // 바꿔 보세요!
 
@@ -67,11 +67,7 @@ class LayoutBasicsTest {
         }
 
         // then
-        onNodeWithTag("이름")
-            .onChildren()
-            .assertCountEquals(3)
-            .onFirst()
-            .assert(hasText("깜포즈"))
+        onNodeWithTag("이름").onChildren().assertCountEquals(3).onFirst().assert(hasText("깜포즈"))
     }
 
     @Test
@@ -84,15 +80,14 @@ class LayoutBasicsTest {
                     enabled = false
                 },
                 enabled = enabled,
-                modifier = Modifier.Companion.testTag("버튼")
+                modifier = Modifier.Companion.testTag("버튼"),
             ) {
                 Text(text = "클릭해주세요")
             }
         }
 
         // when
-        val button = onNodeWithTag("버튼")
-            .performClick()
+        val button = onNodeWithTag("버튼").performClick()
 
         // then
         button.assertIsNotEnabled()

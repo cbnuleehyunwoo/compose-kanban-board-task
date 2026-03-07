@@ -5,4 +5,4 @@ data class TaskInfo(
     val contents: String? = null,
     val tags: List<Tag>? = null,
     val contactName: String? = null,
-    )
+)
