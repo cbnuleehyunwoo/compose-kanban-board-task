@@ -29,7 +29,7 @@ fun TaskTags(
 
     ) {
     val checkedTagNames = tagNames.map {
-        checkTagName(it.name)
+        checkTagNameOverflow(it.name)
     }.subList(0, minOf(tagNames.size, 5))
 
     FlowRow(
@@ -62,9 +62,9 @@ private fun TaskTag(tagName: String) {
     }
 }
 
-private fun checkTagName(tagName: String): String {
+private fun checkTagNameOverflow(tagName: String): String {
     return if (tagName.length > 5) {
-        tagName.take(5)
+        tagName.take(5) + "..."
     } else {
         tagName
     }
@@ -74,7 +74,7 @@ private class TagPreviewParameterProvider : PreviewParameterProvider<List<Tag>> 
     override val values: Sequence<List<Tag>> = sequenceOf(
         listOf(Tag("컴포넌트"), Tag("성능")),
         listOf(),
-        listOf(Tag("긴 태그"), Tag("최대로"), Tag("5자까지"), Tag("5개제한임"), Tag("줄임표가되...")),
+        listOf(Tag("긴 태그"), Tag("최대로"), Tag("5자까지"), Tag("5개제한임"), Tag("줄임표가되었습니다.")),
         listOf(Tag("6번째부터"), Tag("표시되지"), Tag("않습니다"), Tag("5개제한임"), Tag("5개제한임"), Tag("6개부터는 표시되지 않습니다.")),
     )
 }
