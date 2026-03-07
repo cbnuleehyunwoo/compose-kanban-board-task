@@ -45,7 +45,7 @@ fun TaskTags(
 }
 
 @Composable
-fun TaskTag(tagName: String) {
+private fun TaskTag(tagName: String) {
     Button(
         modifier = Modifier.height(32.dp),
         onClick = {},
@@ -62,7 +62,7 @@ fun TaskTag(tagName: String) {
     }
 }
 
-fun checkTagName(tagName: String): String {
+private fun checkTagName(tagName: String): String {
     return if (tagName.length > 5) {
         tagName.take(5)
     } else {

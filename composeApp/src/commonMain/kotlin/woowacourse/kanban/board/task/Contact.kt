@@ -50,7 +50,7 @@ fun TaskContact(
 }
 
 @Composable
-fun ContactProfile() {
+private fun ContactProfile() {
     Icon(
         modifier = Modifier.background(Color.Gray, shape = CircleShape).border(
                 shape = CircleShape,
@@ -64,7 +64,7 @@ fun ContactProfile() {
 }
 
 @Composable
-fun ContactName(contactName: String) {
+private fun ContactName(contactName: String) {
     Text(
         text = contactName,
         fontFamily = FontFamily.SansSerif,
