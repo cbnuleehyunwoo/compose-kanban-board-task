@@ -1,4 +1,4 @@
-package woowacourse.kanban.board.task
+package woowacourse.kanban.board.taskCard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

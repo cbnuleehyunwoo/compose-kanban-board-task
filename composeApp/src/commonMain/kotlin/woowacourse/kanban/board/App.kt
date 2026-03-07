@@ -9,8 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import woowacourse.kanban.board.task.Tag
-import woowacourse.kanban.board.task.TaskInfo
+import woowacourse.kanban.board.taskCard.Tag
+import woowacourse.kanban.board.taskCard.TaskCard
+import woowacourse.kanban.board.taskCard.TaskInfo
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
@@ -19,11 +20,13 @@ fun App() {
         Column(
             modifier = Modifier.background(Color.White).safeContentPadding().fillMaxSize(),
         ) {
-            TaskInfo(
-                title = "LazyColumn 컴포넌트 구현",
-                contents = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
-                tags = listOf(Tag("컴포넌트"), Tag("성능")),
-                contactName = "다이노",
+            TaskCard(
+                TaskInfo(
+                    title = "LazyColumn 컴포넌트 구현",
+                    contents = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
+                    tags = listOf(Tag("컴포넌트"), Tag("성능")),
+                    contactName = "다이노",
+                ),
             )
         }
     }

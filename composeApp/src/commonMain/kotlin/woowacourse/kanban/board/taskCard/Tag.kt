@@ -1,4 +1,4 @@
-package woowacourse.kanban.board.task
+package woowacourse.kanban.board.taskCard
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.FlowRow

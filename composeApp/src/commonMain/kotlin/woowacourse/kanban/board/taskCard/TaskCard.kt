@@ -1,4 +1,4 @@
-package woowacourse.kanban.board.task
+package woowacourse.kanban.board.taskCard
 
 data class TaskInfo(
     val title: String,

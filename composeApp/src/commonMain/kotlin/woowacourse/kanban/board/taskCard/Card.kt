@@ -1,4 +1,4 @@
-package woowacourse.kanban.board.task
+package woowacourse.kanban.board.taskCard
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +17,8 @@ import androidx.compose.ui.unit.dp
 @Preview(showBackground = true)
 @Composable
 fun TaskCard(
-    @PreviewParameter(TaskCardPreviewParameterProvider::class) taskInfo: TaskInfo,
+    @PreviewParameter(TaskCardPreviewParameterProvider::class)
+    taskInfo: TaskInfo,
 ) {
     Column(
         modifier = Modifier.width(373.dp).border(2.dp, Color.LightGray, RoundedCornerShape(10.dp))
