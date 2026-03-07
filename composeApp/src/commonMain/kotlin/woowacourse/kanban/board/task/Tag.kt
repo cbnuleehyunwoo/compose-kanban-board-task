@@ -63,10 +63,10 @@ fun TaskTag(tagName: String) {
 }
 
 fun checkTagName(tagName: String): String {
-    if (tagName.length > 5) {
-        return tagName.substring(0, 5)
+    return if (tagName.length > 5) {
+        tagName.take(5)
     } else {
-        return tagName
+        tagName
     }
 }
 
