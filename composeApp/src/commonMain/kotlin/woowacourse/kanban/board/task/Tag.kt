@@ -15,11 +15,14 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+data class Tag (
+    val name: String,
+)
 
 @Composable
-fun TaskTags(tagNames: List<String>) {
+fun TaskTags(tagNames: List<Tag>) {
     val checkedTageNames = tagNames.map {
-        checkTageName(it)
+        checkTagName(it.name)
     }.subList(0, minOf(tagNames.size, 5))
 
     FlowRow(
@@ -52,7 +55,7 @@ fun TaskTag(tagName: String) {
         )
     }
 }
-fun checkTageName(tagName: String): String {
+fun checkTagName(tagName: String): String {
     if (tagName.length > 5) {
         return tagName.substring(0,5)
     }else{
