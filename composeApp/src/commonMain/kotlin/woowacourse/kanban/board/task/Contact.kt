@@ -19,11 +19,17 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 
-
+@Preview(showBackground = true)
 @Composable
-fun TaskContact(contactName: String) {
+fun TaskContact(
+    @PreviewParameter(ContactPreviewParameterProvider::class)
+    contactName: String
+) {
     Row(
         modifier = Modifier
             .width(336.dp)
@@ -69,5 +75,11 @@ fun ContactName(contactName: String) {
         maxLines = 1,
         overflow = TextOverflow.Ellipsis
 
+    )
+}
+
+private class ContactPreviewParameterProvider: PreviewParameterProvider<String> {
+    override val values: Sequence<String> = sequenceOf(
+        "다이노", "디노", "", "너무너무 긴이름은 말줄임표로 처리합니다. 너무너무 긴이름은 말줄임표로 처리합니다."
     )
 }
