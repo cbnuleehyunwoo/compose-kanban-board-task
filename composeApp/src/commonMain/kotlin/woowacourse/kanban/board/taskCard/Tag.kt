@@ -25,8 +25,8 @@ data class Tag(
 @Preview(showBackground = true)
 @Composable
 fun TaskTags(
-    @PreviewParameter(TagPreviewParameterProvider::class) tagNames: List<Tag>,
-
+    @PreviewParameter(TagPreviewParameterProvider::class)
+    tagNames: List<Tag>,
     ) {
     val checkedTagNames = tagNames.map {
         checkTagNameOverflow(it.name)
@@ -37,7 +37,7 @@ fun TaskTags(
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         checkedTagNames.forEach {
-            TaskTag(it)
+            TaskTag(Modifier.height(32.dp),it)
         }
     }
 
@@ -45,9 +45,12 @@ fun TaskTags(
 }
 
 @Composable
-private fun TaskTag(tagName: String) {
+private fun TaskTag(
+    modifier: Modifier,
+    tagName: String
+) {
     Button(
-        modifier = Modifier.height(32.dp),
+        modifier = modifier,
         onClick = {},
         shape = RoundedCornerShape(21.dp),
         colors = ButtonDefaults.buttonColors(containerColor = Color.LightGray),

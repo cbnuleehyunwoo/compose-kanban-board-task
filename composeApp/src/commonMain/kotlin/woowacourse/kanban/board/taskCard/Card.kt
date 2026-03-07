@@ -3,6 +3,7 @@ package woowacourse.kanban.board.taskCard
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,17 +19,18 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun TaskCard(
     @PreviewParameter(TaskCardPreviewParameterProvider::class)
+    modifier: Modifier,
     taskInfo: TaskInfo,
 ) {
     Column(
-        modifier = Modifier.width(373.dp).border(2.dp, Color.LightGray, RoundedCornerShape(10.dp))
+        modifier = modifier.border(2.dp, Color.LightGray, RoundedCornerShape(10.dp))
             .padding(start = 22.5.dp, end = 22.5.dp, top = 22.5.dp, bottom = 22.5.dp),
         verticalArrangement = Arrangement.spacedBy(18.5.dp),
     ) {
         TaskTitle(taskInfo.title)
         taskInfo.contents?.let { TaskContents(taskInfo.contents) }
         taskInfo.tags?.let { TaskTags(taskInfo.tags) }
-        taskInfo.contactName?.let { TaskContact(taskInfo.contactName) }
+        taskInfo.contactName?.let { TaskContact(Modifier.width(336.dp).height(60.dp), taskInfo.contactName) }
     }
 }
 

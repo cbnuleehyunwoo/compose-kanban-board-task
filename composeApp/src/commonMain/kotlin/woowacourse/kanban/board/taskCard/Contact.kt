@@ -27,10 +27,12 @@ import androidx.compose.ui.unit.dp
 @Preview(showBackground = true)
 @Composable
 fun TaskContact(
-    @PreviewParameter(ContactPreviewParameterProvider::class) contactName: String,
+    @PreviewParameter(ContactPreviewParameterProvider::class)
+    modifier: Modifier,
+    contactName: String,
 ) {
     Row(
-        modifier = Modifier.width(336.dp).height(60.dp).drawBehind {
+        modifier = modifier.drawBehind {
                 val strokeWidth = 1.dp.toPx()
                 val y = strokeWidth / 2
 
@@ -44,15 +46,15 @@ fun TaskContact(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        ContactProfile()
+        ContactProfile(Modifier.background(Color.Gray, shape = CircleShape))
         ContactName(contactName)
     }
 }
 
 @Composable
-private fun ContactProfile() {
+private fun ContactProfile(modifier: Modifier) {
     Icon(
-        modifier = Modifier.background(Color.Gray, shape = CircleShape).border(
+        modifier = modifier.border(
                 shape = CircleShape,
                 width = 2.dp,
                 color = Color.Gray,
