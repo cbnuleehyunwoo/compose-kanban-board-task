@@ -36,19 +36,18 @@ data class Tag(
 @Preview(showBackground = true)
 @Composable
 fun TaskTags(
-    @PreviewParameter(TagPreviewParameterProvider::class)
-    tagNames: List<Tag>,
-    ) {
-    val checkedTagNames = tagNames.map {
-        formatTagName(it.name)
-    }.subList(0, minOf(tagNames.size, 5))
+    @PreviewParameter(TagPreviewParameterProvider::class) tagNames: List<Tag>,
+    maxTagCount: Int = 5,
+) {
+    val checkedTagNames = takeNTags(tagNames, maxTagCount)
 
     FlowRow(
         horizontalArrangement = Arrangement.spacedBy(6.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         checkedTagNames.forEach {
-            TaskTag(Modifier.height(32.dp),it)
+            val formattedName = it.formatTagName(5)
+            TaskTag(Modifier.height(32.dp), formattedName)
         }
     }
 
@@ -58,7 +57,7 @@ fun TaskTags(
 @Composable
 private fun TaskTag(
     modifier: Modifier,
-    tagName: String
+    tagName: String,
 ) {
     Button(
         modifier = modifier,
@@ -76,13 +75,7 @@ private fun TaskTag(
     }
 }
 
-private fun formatTagName(tagName: String, maxLength: Int = 5): String {
-    return if (tagName.length > maxLength) {
-        tagName.take(maxLength) + "..."
-    } else {
-        tagName
-    }
-}
+internal fun takeNTags(tagNames: List<Tag>, maxTagCount: Int) = tagNames.take(maxTagCount)
 
 private class TagPreviewParameterProvider : PreviewParameterProvider<List<Tag>> {
     override val values: Sequence<List<Tag>> = sequenceOf(
