@@ -29,7 +29,7 @@ fun TaskTags(
     tagNames: List<Tag>,
     ) {
     val checkedTagNames = tagNames.map {
-        checkTagNameOverflow(it.name)
+        formatTagName(it.name)
     }.subList(0, minOf(tagNames.size, 5))
 
     FlowRow(
@@ -65,9 +65,9 @@ private fun TaskTag(
     }
 }
 
-private fun checkTagNameOverflow(tagName: String): String {
-    return if (tagName.length > 5) {
-        tagName.take(5) + "..."
+private fun formatTagName(tagName: String, maxLength: Int = 5): String {
+    return if (tagName.length > maxLength) {
+        tagName.take(maxLength) + "..."
     } else {
         tagName
     }
