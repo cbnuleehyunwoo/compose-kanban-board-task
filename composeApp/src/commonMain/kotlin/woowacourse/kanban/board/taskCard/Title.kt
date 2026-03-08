@@ -13,14 +13,16 @@ import androidx.compose.ui.unit.sp
 @Preview
 @Composable
 fun TaskTitle(
-    @PreviewParameter(TitlePreviewParameterProvider::class) title: String,
+    @PreviewParameter(TitlePreviewParameterProvider::class)
+    title: String,
+    maxLines: Int = 1
 ) {
     Text(
         text = title,
         fontWeight = Bold,
         fontSize = 18.sp,
         fontFamily = FontFamily.SansSerif,
-        maxLines = 1,
+        maxLines = maxLines,
         overflow = TextOverflow.Ellipsis,
     )
 }

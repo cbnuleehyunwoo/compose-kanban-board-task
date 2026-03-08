@@ -30,6 +30,7 @@ fun TaskContact(
     @PreviewParameter(ContactPreviewParameterProvider::class)
     modifier: Modifier,
     contactName: String,
+    maxLines: Int = 1,
 ) {
     Row(
         modifier = modifier.drawBehind {
@@ -47,7 +48,7 @@ fun TaskContact(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         ContactProfile(Modifier.background(Color.Gray, shape = CircleShape))
-        ContactName(contactName)
+        ContactName(contactName, maxLines)
     }
 }
 
@@ -66,11 +67,14 @@ private fun ContactProfile(modifier: Modifier) {
 }
 
 @Composable
-private fun ContactName(contactName: String) {
+private fun ContactName(
+    contactName: String,
+    maxLines: Int = 1,
+) {
     Text(
         text = contactName,
         fontFamily = FontFamily.SansSerif,
-        maxLines = 1,
+        maxLines = maxLines,
         overflow = TextOverflow.Ellipsis,
 
         )
