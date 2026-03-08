@@ -20,7 +20,18 @@ import androidx.compose.ui.unit.sp
 
 data class Tag(
     val name: String,
-)
+) {
+    init {
+        require(name.isNotBlank()) { "태그 명은 공백이거나 빈 문자열일 수 없습니다." }
+    }
+    fun formatTagName(maxLength: Int = 5): String {
+        return if (name.length > maxLength) {
+            name.take(maxLength) + "..."
+        } else {
+            name
+        }
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
