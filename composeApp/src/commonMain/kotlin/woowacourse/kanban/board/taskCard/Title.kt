@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.sp
 fun TaskTitle(
     @PreviewParameter(TitlePreviewParameterProvider::class)
     title: String,
-    maxLines: Int = 1
+    maxLines: Int = 1,
 ) {
     Text(
         text = title,

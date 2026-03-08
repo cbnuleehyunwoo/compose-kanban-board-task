@@ -30,8 +30,7 @@ fun App() {
                     contactName = "다이노",
                 ),
                 modifier = Modifier.width(373.dp),
-
-                )
+            )
         }
     }
 }
