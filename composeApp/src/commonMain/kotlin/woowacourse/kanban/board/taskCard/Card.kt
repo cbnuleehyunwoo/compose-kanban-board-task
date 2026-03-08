@@ -18,9 +18,8 @@ import androidx.compose.ui.unit.dp
 @Preview(showBackground = true)
 @Composable
 fun TaskCard(
-    @PreviewParameter(TaskCardPreviewParameterProvider::class)
-    modifier: Modifier,
-    taskInfo: TaskInfo,
+    @PreviewParameter(TaskCardPreviewParameterProvider::class) taskInfo: TaskInfo,
+    modifier: Modifier = Modifier,
 ) {
     Column(
         modifier = modifier.border(2.dp, Color.LightGray, RoundedCornerShape(10.dp))
@@ -29,8 +28,8 @@ fun TaskCard(
     ) {
         TaskTitle(taskInfo.title)
         taskInfo.contents?.let { TaskContents(taskInfo.contents) }
-        taskInfo.tags?.let { TaskTags(taskInfo.tags) }
-        taskInfo.contactName?.let { TaskContact(Modifier.width(336.dp).height(60.dp), taskInfo.contactName) }
+        taskInfo.tags?.let { TaskTags(taskInfo.tags, Modifier.height(32.dp)) }
+        taskInfo.contactName?.let { TaskContact(taskInfo.contactName, Modifier.width(336.dp).height(60.dp)) }
     }
 }
 

@@ -4,8 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
@@ -27,23 +25,22 @@ import androidx.compose.ui.unit.dp
 @Preview(showBackground = true)
 @Composable
 fun TaskContact(
-    @PreviewParameter(ContactPreviewParameterProvider::class)
-    modifier: Modifier,
-    contactName: String,
+    @PreviewParameter(ContactPreviewParameterProvider::class) contactName: String,
+    modifier: Modifier = Modifier,
     maxLines: Int = 1,
 ) {
     Row(
         modifier = modifier.drawBehind {
-                val strokeWidth = 1.dp.toPx()
-                val y = strokeWidth / 2
+            val strokeWidth = 1.dp.toPx()
+            val y = strokeWidth / 2
 
-                drawLine(
-                    color = Color.LightGray,
-                    start = Offset(0f, y),
-                    end = Offset(size.width, y),
-                    strokeWidth = strokeWidth,
-                )
-            },
+            drawLine(
+                color = Color.LightGray,
+                start = Offset(0f, y),
+                end = Offset(size.width, y),
+                strokeWidth = strokeWidth,
+            )
+        },
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -56,10 +53,10 @@ fun TaskContact(
 private fun ContactProfile(modifier: Modifier) {
     Icon(
         modifier = modifier.border(
-                shape = CircleShape,
-                width = 2.dp,
-                color = Color.Gray,
-            ),
+            shape = CircleShape,
+            width = 2.dp,
+            color = Color.Gray,
+        ),
         imageVector = Icons.Default.AccountBox,
         contentDescription = "아이콘",
         tint = Color.White,

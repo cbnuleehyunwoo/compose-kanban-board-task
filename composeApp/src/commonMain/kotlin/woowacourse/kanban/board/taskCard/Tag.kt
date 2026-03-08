@@ -24,6 +24,7 @@ data class Tag(
     init {
         require(name.isNotBlank()) { "태그 명은 공백이거나 빈 문자열일 수 없습니다." }
     }
+
     fun formatTagName(maxLength: Int = 5): String {
         return if (name.length > maxLength) {
             name.take(maxLength) + "..."
@@ -37,6 +38,7 @@ data class Tag(
 @Composable
 fun TaskTags(
     @PreviewParameter(TagPreviewParameterProvider::class) tagNames: List<Tag>,
+    modifier: Modifier = Modifier,
     maxTagCount: Int = 5,
 ) {
     val checkedTagNames = takeNTags(tagNames, maxTagCount)
@@ -47,7 +49,7 @@ fun TaskTags(
     ) {
         checkedTagNames.forEach {
             val formattedName = it.formatTagName(5)
-            TaskTag(Modifier.height(32.dp), formattedName)
+            TaskTag(modifier, formattedName)
         }
     }
 
