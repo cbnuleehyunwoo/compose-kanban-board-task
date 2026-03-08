@@ -79,6 +79,6 @@ private fun ContactName(
 
 private class ContactPreviewParameterProvider : PreviewParameterProvider<String> {
     override val values: Sequence<String> = sequenceOf(
-        "다이노", "디노", "", "너무너무 긴이름은 말줄임표로 처리합니다. 너무너무 긴이름은 말줄임표로 처리합니다.",
+        "다이노", "디노", "너무너무 긴이름은 말줄임표로 처리합니다. 너무너무 긴이름은 말줄임표로 처리합니다.",
     )
 }
